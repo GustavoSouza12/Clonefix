@@ -3,7 +3,7 @@ import "./App.css"
 import Tmdb from './Tmdb'
 import MovieRow from './components/MovieRow'
 import FeaturedMovie from './components/FeaturedMovie'
-
+import Header from './components/Header'
 export default () => {
     const [movieList, setMovieList] = useState([])
     const [FeaturedData, setFeaturedData] = useState([null])
@@ -25,6 +25,8 @@ export default () => {
 
     return (
         <div className="page">
+
+            <Header />
 
             {FeaturedData &&
                 <FeaturedMovie item={FeaturedData}></FeaturedMovie>
