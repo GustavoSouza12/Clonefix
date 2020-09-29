@@ -54,6 +54,11 @@ export default () => {
                     <MovieRow key={key} title={item.title} items={item.items}/>
                 ))}
             </section>
+
+            <footer>
+                <span>Made by <a href="https://github.com/GustavoSouza12">Gstdev</a></span>
+                <span>Image Rights to Netflix</span>
+            </footer>    
         </div>
     )
 }
