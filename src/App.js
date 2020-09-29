@@ -6,15 +6,19 @@ import FeaturedMovie from './components/FeaturedMovie'
 
 export default () => {
     const [movieList, setMovieList] = useState([])
-    const [FeaturedData, setFeaturedData] = useState([])
+    const [FeaturedData, setFeaturedData] = useState([null])
 
     useEffect(()=>{
         const loadAll = async () => {
             let showList = await Tmdb.getHomeList()
             setMovieList(showList)
 
+            let originals = showList.filter(i=>i.slug === 'originals')
+            let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length -1))
+            let chosen = originals[0].items.results[randomChosen]
+            let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
 
-            
+            console.log(chosenInfo)
         }
         loadAll()
     }, [])
